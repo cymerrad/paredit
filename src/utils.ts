@@ -16,27 +16,27 @@ interface Delete {
 
 type Command = Insert | Delete;
 
-function toCommand([command, start, arg]): Command {
+function toCommand([command, start, arg]: [string, number, any]): Command {
     if (command === 'insert')
-        return { kind: command, start: start, text: arg };
+        return { kind: command, start: start, text: arg } as Insert;
     else
-        return { kind: command, start: start, length: arg };
+        return { kind: command, start: start, length: arg } as Delete;
 }
 
 
 
 function toVscodePositions(editor: TextEditor, pos: any) {
-    let start, end: number;
+    let start = -1, end = -1;
     if (typeof pos === "number")
         start = end = pos;
     else if (pos instanceof Array)
-        start = pos[0], end = pos[1];
+        [start, end] = pos;
     let pos1 = editor.document.positionAt(start), pos2 = editor.document.positionAt(end);
     return { pos1, pos2 };
 }
 
 
-export const commands = (res) => res.changes.map(toCommand);
+export const commands = (res: any) => res.changes.map(toCommand);
 
 export function end(command: Command) {
     if (command.kind === 'insert')
@@ -81,7 +81,7 @@ export function cut(editor: TextEditor, pos: [number, number]) {
 
 
 export const handle = (editor: TextEditor, command: Command) =>
-    edit => {
+    (edit: any) => {
         let start = editor.document.positionAt(command.start);
 
         if (command.kind === 'insert')
