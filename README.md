@@ -1,3 +1,2 @@
-# OLD Calva Paredit
-
-Archiving this repo now, Calva Paredit is now part of the [Calva repository](/BetterThanTomorrow/calva).
+# Yoinking Calva's repo for better experience with other Lisps
+Mainly, I want to experiment with some extra support for Hylang.
