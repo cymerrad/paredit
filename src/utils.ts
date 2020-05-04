@@ -1,6 +1,6 @@
 'use strict';
-import { TextEditor, TextEditorEdit, Selection, Range } from 'vscode';
 import * as clipboardy from 'clipboardy';
+import { Range, Selection, TextEditor } from 'vscode';
 
 interface Insert {
     kind: "insert",

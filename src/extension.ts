@@ -1,11 +1,11 @@
 'use strict';
+import { commands, ConfigurationChangeEvent, ExtensionContext, window, workspace } from 'vscode';
 import { StatusBar } from './status_bar';
 import * as utils from './utils';
-import { commands, window, ExtensionContext, workspace, ConfigurationChangeEvent } from 'vscode';
 
 let paredit = require('paredit.js');
 
-const languages = new Set(["clojure", "lisp", "scheme"]);
+const languages = new Set(["clojure", "hy", "lisp", "scheme"]);
 let enabled = true,
     expandState = { range: null, prev: null };
 
