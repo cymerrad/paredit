@@ -3,7 +3,7 @@
     "displayName": "Just Paredit",
     "description": "Structural editing and navigation",
     "version": "0.1.0",
-    "publisher": "",
+    "publisher": "cymerrad",
     "license": "MIT",
     "engines": {
         "vscode": "^1.44.0"
