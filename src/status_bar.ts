@@ -1,5 +1,5 @@
 'use strict';
-import { window, StatusBarAlignment, StatusBarItem } from 'vscode';
+import { StatusBarAlignment, StatusBarItem, window } from 'vscode';
 
 const activeColour = "white";
 const inactiveColour = "#b3b3b3";
@@ -17,10 +17,8 @@ export class StatusBar {
         this._toggleBarItem = window.createStatusBarItem(StatusBarAlignment.Right);
         this._toggleBarItem.text = "(λ)";
         this._toggleBarItem.command = 'paredit.toggle';
-        this.enabled = enabled;
-        this.visible = visible;
-
-        this.visible = visible;
+        this._enabled = enabled;
+        this._visible = visible;
     }
 
     get enabled() {
